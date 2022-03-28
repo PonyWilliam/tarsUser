@@ -1,0 +1,8 @@
+module Users
+{
+	interface Login
+	{
+	    bool Login(string username,string password);
+		bool Registry(string name,string idcard,string phone,string username,string password);
+	};
+};
