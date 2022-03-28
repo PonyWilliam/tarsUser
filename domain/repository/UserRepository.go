@@ -95,12 +95,12 @@ func(u UserRepo)Find()[]model.User{
 }
 func(u UserRepo)FindByName(name string)[]model.User{
 	var user []model.User
-	u.Db.Where("name = ?",&user)
+	u.Db.Where("name = ?",name).Find(&user)
 	return user
 }
 func(u UserRepo)FindByUserName(username string)*model.User{
 	user := &model.User{}
-	u.Db.Where("username = ?",&user)
+	u.Db.Where("username = ?",username).First(&user)
 	return user
 }
 func(u UserRepo)DelByID(id int64)(error){
@@ -119,7 +119,9 @@ func(u UserRepo)UpdateUser(user model.User)(error){
 	// Username string `json:"user_name" gorm:"not_null;unique"`
 	// Password string `json:"password"`
 	// Money int64 `json:"money"`
-	db.Model(&user).Updates(user)
+	fmt.Println("update")
+	fmt.Println(user)
+	db.Model(&model.User{}).Update("name", "hello")
 	return nil
 }
 

@@ -1,0 +1,32 @@
+module Users
+	// FindByID(id int64)*model.User
+	// FindByIDCard(idcard string)*model.User
+	// Find()[]model.User
+	// FindByName(name string)[]model.User
+	// FindByUserName(username string)*model.User
+	// DelByID(id int64)(error)
+	// UpdateUser(user model.User)(error)
+{
+    struct User{
+        0 optional int id;
+        1 optional string name;
+        2 optional string idcard;
+        3 optional int level;
+        4 optional int score;
+        5 optional string phone;
+        6 optional int state;
+        7 optional bool promise;
+        8 optional string username;
+        9 optional int money;
+    };
+	interface ManageUser
+	{
+	    bool FindByID(int id,out User u);
+        bool FindByIDCard(string idcard,out User u);
+        bool Find(out vector<User> u);
+        bool FindByName(string name,out vector<User> u);
+        bool FindByUserName(string username,out User u);
+        bool DelByID(int id);
+        bool UpdateUser(User u);
+	};
+};

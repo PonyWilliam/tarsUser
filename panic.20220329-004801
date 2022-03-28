@@ -1,0 +1,191 @@
+runtime error: invalid memory address or nil pointer dereference
+
+current running goroutine num: 13
+
+goroutine 55 [running]:
+github.com/TarsCloud/TarsGo/tars/util/debug.DumpStack(0xa5?, {0x178ea83, 0x5}, {0xc0004f5e80, 0x40})
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/util/debug/debugtool.go:43 +0x85
+github.com/TarsCloud/TarsGo/tars.CheckPanic()
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/panic.go:20 +0xae
+panic({0x16e4520, 0x1ca5d40})
+	/usr/local/go/src/runtime/panic.go:838 +0x207
+gorm.io/gorm.(*DB).getInstance(0x18bece0?)
+	/Users/williamtan/go/pkg/mod/gorm.io/gorm@v1.23.3/gorm.go:363 +0x18
+gorm.io/gorm.(*DB).Model(...)
+	/Users/williamtan/go/pkg/mod/gorm.io/gorm@v1.23.3/chainable_api.go:18
+github.com/PonyWilliam/tarsUser/domain/repository.UserRepo.UpdateUser({0x60000c00005cd80?}, {0x1, {0xc00050a280, 0x9}, {0x0, 0x0}, 0x0, 0x0, {0x0, 0x0}, ...})
+	/Users/williamtan/tars/Users/domain/repository/UserRepository.go:124 +0xfb
+main.(*ManagerUserImp).UpdateUser(0x18c2988?, {0xc0001846f0?, 0x101?}, 0x0?)
+	/Users/williamtan/tars/Users/ManageUser_imp.go:79 +0x156
+github.com/PonyWilliam/tarsUser/tars-protocol/Users.(*ManageUser).Dispatch(0xc00030ce60?, {0x18c2988, 0xc0001846f0}, {0x17489e0?, 0x1ceee70}, 0xc000300180, 0xc0002380a0, 0x1)
+	/Users/williamtan/tars/Users/tars-protocol/Users/ManageUser.tars.go:2767 +0x441b
+github.com/TarsCloud/TarsGo/tars.(*Protocol).Invoke(0xc00009a120, {0x18c2988, 0xc0001846f0}, {0xc0005c4060, 0x57, 0x57})
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/tarsprotocol.go:99 +0xbb5
+github.com/TarsCloud/TarsGo/tars/transport.(*TarsServer).invoke(0xc000089900, {0x18c2988?, 0xc0001846f0}, {0xc0005c4060, 0x57, 0x57})
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tarsserver.go:121 +0xad
+github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).handleConn.func1()
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tcphandler.go:81 +0xec
+created by github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).handleConn
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tcphandler.go:102 +0xe5
+
+goroutine 1 [select]:
+github.com/TarsCloud/TarsGo/tars.mainLoop()
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:547 +0x277
+github.com/TarsCloud/TarsGo/tars.Run()
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:391 +0x1ee
+main.main()
+	/Users/williamtan/tars/Users/main.go:56 +0x1ea
+
+goroutine 35 [chan receive]:
+github.com/TarsCloud/TarsGo/tars/util/gtime.init.0.func1()
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/util/gtime/gtime.go:25 +0x71
+created by github.com/TarsCloud/TarsGo/tars/util/gtime.init.0
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/util/gtime/gtime.go:19 +0x145
+
+goroutine 36 [select]:
+github.com/TarsCloud/TarsGo/tars/util/rogger.flushLog()
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/util/rogger/logger.go:328 +0xc5
+created by github.com/TarsCloud/TarsGo/tars/util/rogger.init.0
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/util/rogger/logger.go:58 +0x25
+
+goroutine 3 [syscall]:
+os/signal.signal_recv()
+	/usr/local/go/src/runtime/sigqueue.go:148 +0x28
+os/signal.loop()
+	/usr/local/go/src/os/signal/signal_unix.go:23 +0x19
+created by os/signal.Notify.func1.1
+	/usr/local/go/src/os/signal/signal.go:151 +0x2a
+
+goroutine 51 [select]:
+database/sql.(*DB).connectionOpener(0xc0005b41a0, {0x18c28e0, 0xc00059d7c0})
+	/usr/local/go/src/database/sql/sql.go:1226 +0x8d
+created by database/sql.OpenDB
+	/usr/local/go/src/database/sql/sql.go:794 +0x18d
+
+goroutine 39 [select]:
+github.com/go-sql-driver/mysql.(*mysqlConn).startWatcher.func1()
+	/Users/williamtan/go/pkg/mod/github.com/go-sql-driver/mysql@v1.6.0/connection.go:614 +0xaa
+created by github.com/go-sql-driver/mysql.(*mysqlConn).startWatcher
+	/Users/williamtan/go/pkg/mod/github.com/go-sql-driver/mysql@v1.6.0/connection.go:611 +0xfe
+
+goroutine 82 [IO wait]:
+internal/poll.runtime_pollWait(0x2ed7008, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:302 +0x89
+internal/poll.(*pollDesc).wait(0xc0001b4000?, 0x0?, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:83 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:88
+internal/poll.(*FD).Accept(0xc0001b4000)
+	/usr/local/go/src/internal/poll/fd_unix.go:614 +0x22c
+net.(*netFD).accept(0xc0001b4000)
+	/usr/local/go/src/net/fd_unix.go:172 +0x35
+net.(*TCPListener).accept(0xc00000e018)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x28
+net.(*TCPListener).Accept(0xc00000e018)
+	/usr/local/go/src/net/tcpsock.go:288 +0x3d
+net/http.(*Server).Serve(0xc00071e0e0, {0x18c1e00, 0xc00000e018})
+	/usr/local/go/src/net/http/server.go:3039 +0x385
+github.com/TarsCloud/TarsGo/tars.Run.func1({0xc000314048, 0x13})
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:347 +0x245
+created by github.com/TarsCloud/TarsGo/tars.Run
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:328 +0x352
+
+goroutine 83 [IO wait]:
+internal/poll.runtime_pollWait(0x2ed6d38, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:302 +0x89
+internal/poll.(*pollDesc).wait(0xc000538000?, 0xc000046000?, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:83 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:88
+internal/poll.(*FD).Accept(0xc000538000)
+	/usr/local/go/src/internal/poll/fd_unix.go:614 +0x22c
+net.(*netFD).accept(0xc000538000)
+	/usr/local/go/src/net/fd_unix.go:172 +0x35
+net.(*TCPListener).accept(0xc00053a000)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x28
+net.(*TCPListener).Accept(0xc00053a000)
+	/usr/local/go/src/net/tcpsock.go:288 +0x3d
+github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).Handle(0xc000036240)
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tcphandler.go:118 +0xa9
+github.com/TarsCloud/TarsGo/tars/transport.(*TarsServer).Serve(...)
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tarsserver.go:75
+github.com/TarsCloud/TarsGo/tars.Run.func2({0xc000314078, 0x14})
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:375 +0x122
+created by github.com/TarsCloud/TarsGo/tars.Run
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:367 +0x51c
+
+goroutine 84 [IO wait]:
+internal/poll.runtime_pollWait(0x2ed6e28, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:302 +0x89
+internal/poll.(*pollDesc).wait(0xc00036e000?, 0x4dda9975fb2?, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:83 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:88
+internal/poll.(*FD).Accept(0xc00036e000)
+	/usr/local/go/src/internal/poll/fd_unix.go:614 +0x22c
+net.(*netFD).accept(0xc00036e000)
+	/usr/local/go/src/net/fd_unix.go:172 +0x35
+net.(*TCPListener).accept(0xc000198018)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x28
+net.(*TCPListener).Accept(0xc000198018)
+	/usr/local/go/src/net/tcpsock.go:288 +0x3d
+github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).Handle(0xc000300120)
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tcphandler.go:118 +0xa9
+github.com/TarsCloud/TarsGo/tars/transport.(*TarsServer).Serve(...)
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tarsserver.go:75
+github.com/TarsCloud/TarsGo/tars.Run.func2({0xc00011e120, 0x1a})
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:375 +0x122
+created by github.com/TarsCloud/TarsGo/tars.Run
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:367 +0x51c
+
+goroutine 85 [IO wait]:
+internal/poll.runtime_pollWait(0x2ed6f18, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:302 +0x89
+internal/poll.(*pollDesc).wait(0xc000444780?, 0xc00003ef00?, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:83 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:88
+internal/poll.(*FD).Accept(0xc000444780)
+	/usr/local/go/src/internal/poll/fd_unix.go:614 +0x22c
+net.(*netFD).accept(0xc000444780)
+	/usr/local/go/src/net/fd_unix.go:172 +0x35
+net.(*TCPListener).accept(0xc000302540)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x28
+net.(*TCPListener).Accept(0xc000302540)
+	/usr/local/go/src/net/tcpsock.go:288 +0x3d
+github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).Handle(0xc000114180)
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tcphandler.go:118 +0xa9
+github.com/TarsCloud/TarsGo/tars/transport.(*TarsServer).Serve(...)
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tarsserver.go:75
+github.com/TarsCloud/TarsGo/tars.Run.func2({0x17915fc, 0x8})
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:375 +0x122
+created by github.com/TarsCloud/TarsGo/tars.Run
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:367 +0x51c
+
+goroutine 54 [IO wait]:
+internal/poll.runtime_pollWait(0x2ed6c48, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:302 +0x89
+internal/poll.(*pollDesc).wait(0xc00036e080?, 0xc0005c2000?, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:83 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:88
+internal/poll.(*FD).Read(0xc00036e080, {0xc0005c2000, 0x1000, 0x1000})
+	/usr/local/go/src/internal/poll/fd_unix.go:167 +0x25a
+net.(*netFD).Read(0xc00036e080, {0xc0005c2000?, 0xc00d8ca890?, 0xd8ca89001314525?})
+	/usr/local/go/src/net/fd_posix.go:55 +0x29
+net.(*conn).Read(0xc00019c020, {0xc0005c2000?, 0xc0005c4060?, 0x57?})
+	/usr/local/go/src/net/net.go:183 +0x45
+github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).recv(0xc000300120, 0xc000184540)
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tcphandler.go:237 +0x263
+github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).Handle.func1({0x18c4e38, 0xc00019c020})
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tcphandler.go:143 +0x305
+created by github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).Handle
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/transport/tcphandler.go:130 +0x250
+
+goroutine 46 [chan receive]:
+github.com/TarsCloud/TarsGo/tars/util/grace.GraceHandler(0x17d5598, 0x17d55a0)
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/util/grace/signal_unix.go:19 +0xcf
+github.com/TarsCloud/TarsGo/tars.handleSignal()
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:529 +0x27
+created by github.com/TarsCloud/TarsGo/tars.mainLoop
+	/Users/williamtan/go/pkg/mod/github.com/!tars!cloud/!tars!go@v1.3.1/tars/application.go:543 +0x1fc

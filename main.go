@@ -44,11 +44,14 @@ func main() {
     cfg := tars.GetServerConfig()
 	tars.AddHttpServant(mux,cfg.App + "." + cfg.Server + ".HttpObj")
     // New servant imp
-    imp := new(LoginImp)
+    imp1 := new(LoginImp)
+	imp2 := new(ManagerUserImp)
     // New servant
-    app := new(Users.Login)
+    app1 := new(Users.Login)
     // Register Servant
-    app.AddServantWithContext(imp, cfg.App+"."+cfg.Server+".LoginObj")
+    app1.AddServantWithContext(imp1, cfg.App+"."+cfg.Server+".LoginObj")
+	app2 := new(Users.ManageUser)
+	app2.AddServantWithContext(imp2,cfg.App + "." + cfg.Server + ".ManagerUserObj")
     // Run application
     tars.Run()
 }
