@@ -88,6 +88,7 @@ func UpdateTest(){
 	user := &Users.User{}
 	user.Id = 1
 	user.Name = "tanjunwei"
+	user.Level = 100
 	app2.UpdateUser(user)
 }
 func init(){
@@ -104,5 +105,5 @@ func main() {
 	// FindNameTest("谭俊伟")	fix -> 功能正常（rp中数据库语法问题）
 	// FindByUserName("tanjunwei")	fix -> 功能正常（rp中数据库语法问题）
 	// FindByIDCardTest("431103200009260311")	功能正常
-	UpdateTest()
+	UpdateTest()	//异常 fix -> 没有使用面向对象中封装的db导致直接使用出问题
 }

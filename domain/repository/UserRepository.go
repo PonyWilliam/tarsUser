@@ -119,10 +119,15 @@ func(u UserRepo)UpdateUser(user model.User)(error){
 	// Username string `json:"user_name" gorm:"not_null;unique"`
 	// Password string `json:"password"`
 	// Money int64 `json:"money"`
-	fmt.Println("update")
 	fmt.Println(user)
-	db.Model(&model.User{}).Update("name", "hello")
-	return nil
+	if len(user.Password) >= 6{
+		
+		fmt.Println("有密码变动",user.Password)
+		user.Password = EncodeMD5(user.Password)
+	}
+	result := db.Model(&user).Select("*").Updates(user)
+	fmt.Println(result.RowsAffected)
+	return result.Error
 }
 
 func EncodeMD5(pwd string)string{
